@@ -24,10 +24,11 @@ def show_plot(best_chromosome, inf_time=False):
     best_path_y = []
 
     plt.annotate('Start Point', xy=(Config.path_points[int(best_chromosome[0])][0] 
-        + Config.plt_tolerance, Config.path_points[int(best_chromosome[0])][1]))
+        + Config.plt_tolerance, Config.path_points[int(best_chromosome[0])][1]),
+        xytext=(Config.path_points[int(best_chromosome[0])][0]+ Config.plt_tolerance,Config.path_points[int(best_chromosome[0])][1]+Config.plt_tolerance))
     plt.annotate('Goal Point', xy=(Config.path_points[int(best_chromosome[-1])][0]
-        + Config.plt_tolerance, Config.path_points[int(best_chromosome[-1])][1]))
-
+        + Config.plt_tolerance, Config.path_points[int(best_chromosome[-1])][1]),
+        xytext=(Config.path_points[int(best_chromosome[-1])][0]+ Config.plt_tolerance,Config.path_points[int(best_chromosome[-1])][1]+Config.plt_tolerance))
     plt.text(x=Config.plt_ax_x_min, y=Config.plt_ax_y_max + Config.plt_tolerance, 
         s='Generation:(%s)'%(Config.generations))
 
@@ -35,6 +36,10 @@ def show_plot(best_chromosome, inf_time=False):
 
         best_path_x.append(Config.path_points[int(element)][0])
         best_path_y.append(Config.path_points[int(element)][1])
+        """
+        plt.annotate(element, xy=(Config.path_points[int(element)][0]
+        + Config.plt_tolerance, Config.path_points[int(element)][1]))
+        """
 
     plt.plot(best_path_x, best_path_y, "g-")
     plt.draw()
@@ -54,10 +59,16 @@ def _draw_path_points():
     node_x = []
     node_y = []
 
-    for element in Config.path_points:
+    for index, element in enumerate(Config.path_points):
         node_x.append(element[0])
         node_y.append(element[1])
+        plt.annotate(index, xy=(element[0]
+        + Config.plt_tolerance, element[1]))
 
+    """plt.annotate(element, xy=(Config.path_points[int(element)][0]
+        + Config.plt_tolerance, Config.path_points[int(element)][1]))
+    """
+  
     plt.plot(node_x, node_y, "ko")
 
 

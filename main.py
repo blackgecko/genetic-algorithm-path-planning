@@ -19,9 +19,9 @@ from config import Config
 
 def main():
     """
-    This function encapsulates the cappbilty of initializing chromosome population
+    This function encapsulates the capability of initializing chromosome population
     and then continue calculating fitness, generate ranking, perform crossover and
-    mutation & repeating above steps until a defined stopping crietia is not met.
+    mutation & repeating above steps until a defined stopping criteria is not met.
     """
 
     chr_population = population()
