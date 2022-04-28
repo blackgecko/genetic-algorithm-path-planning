@@ -6,8 +6,10 @@ Main script
 Contains: main function
 
 Author: Yasim Ahmad(yaaximus)
-
 Email: yasim.ahmed63@yahoo.com
+
+Modified: Christian Zweili
+Email: christian.zweili@gmail.com
 """
 from tools.population import population
 from tools.fitness import fitness
